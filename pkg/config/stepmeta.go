@@ -283,6 +283,7 @@ func (m *StepData) GetContextDefaults(stepName string) (io.ReadCloser, error) {
 			p["dockerEnvVars"] = EnvVarsAsMap(container.EnvVars)
 			p["dockerImage"] = container.Image
 			p["dockerName"] = container.Name
+			log.Entry().Infof("XXXXXXXXX container.ImagePullPolicy: '%s'", container.ImagePullPolicy)
 			if container.ImagePullPolicy != "" {
 				p["dockerPullImage"] = container.ImagePullPolicy != "Never"
 			}
