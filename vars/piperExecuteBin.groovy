@@ -145,6 +145,7 @@ void dockerWrapper(script, stepName, config, body) {
     if (config.dockerImage) {
         echo "[INFO] executing pipeline step '${stepName}' with docker image '${config.dockerImage}'"
         Map dockerExecuteParameters = [:].plus(config)
+        echo "YYYYYYYYY: ${dockerExecuteParameters}"
         dockerExecuteParameters.script = script
         dockerExecute(dockerExecuteParameters) {
             body()
