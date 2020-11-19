@@ -25,8 +25,10 @@ void call(parameters = [:]) {
 
     checkScript(this, parameters)
 
+       echo "after checkscript"
+    
     node(parameters.label) {
-
+ echo "in node"
         //
         // Cut and paste lines below in order to create a pipeline from this scenario
         // In this case `parameters` needs to be replaced by `script: this`.
