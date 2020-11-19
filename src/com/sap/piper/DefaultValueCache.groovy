@@ -39,6 +39,7 @@ class DefaultValueCache implements Serializable {
 
     static void prepare(Script steps, Map parameters = [:]) {
         if (parameters == null) parameters = [:]
+        echo "before getinstance"
        if (!getInstance() || parameters.customDefaults || parameters.customDefaultsFromFiles) {
                if ( parameters.customDefaults || parameters.customDefaultsFromFiles) {
             List defaultsFromResources = ['default_pipeline_environment.yml']
@@ -57,6 +58,8 @@ class DefaultValueCache implements Serializable {
             // be excluded, since the go steps have their own in-built defaults in their yaml files.
             createInstance(defaultValues, customDefaults + defaultsFromFiles)
         }
+           
+            echo "after getinstance"
     }
 
     private static Map addDefaultsFromLibraryResources(Script steps, Map defaultValues, List resourceFiles) {
