@@ -35,7 +35,9 @@ void call(parameters = [:]) {
 
             deleteDir()
             checkout scm
+               echo "after checkout"
             setupCommonPipelineEnvironment(parameters)
+            echo "after setup"
         }
 
         stage('build') {
