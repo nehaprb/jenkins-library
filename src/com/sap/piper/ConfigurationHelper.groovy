@@ -10,9 +10,9 @@ class ConfigurationHelper implements Serializable {
     }
 
     ConfigurationHelper loadStepDefaults(Map compatibleParameters = [:], String stageName = step.env.STAGE_NAME) {
-        echo "before DefaultValueCache"
+        
         DefaultValueCache.prepare(step)
-         echo "after DefaultValueCache"
+        
         this.config = ConfigurationLoader.defaultGeneralConfiguration()
         mixin(ConfigurationLoader.defaultGeneralConfiguration(), null, compatibleParameters)
         mixin(ConfigurationLoader.defaultStepConfiguration(null, name), null, compatibleParameters)
