@@ -53,8 +53,10 @@ import groovy.transform.Field
 @GenerateDocumentation
 void call(Map parameters = [:]) {
 
+    echo "before handle"
     handlePipelineStepErrors (stepName: STEP_NAME, stepParameters: parameters) {
 
+          echo "after handle"
         def script = checkScript(this, parameters)
 
         String configFile = parameters.get('configFile')
