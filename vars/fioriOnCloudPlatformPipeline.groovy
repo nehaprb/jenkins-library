@@ -20,6 +20,8 @@ import groovy.transform.Field
   * ```
   */
 void call(parameters = [:]) {
+    
+    echo "hello from library"
 
     checkScript(this, parameters)
 
