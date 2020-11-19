@@ -53,6 +53,8 @@ void call(Map parameters = [:], body) {
     // load default & individual configuration
     def cpe = parameters.stepParameters?.script?.commonPipelineEnvironment ?: null
     String stageName = parameters.stepParameters?.stageName ?: env.STAGE_NAME
+     echo "before config  "
+    echo "stagename "+stageName
     Map config = ConfigurationHelper.newInstance(this)
         .loadStepDefaults([:], stageName)
         .mixinGeneralConfig(cpe, GENERAL_CONFIG_KEYS)
@@ -63,7 +65,7 @@ void call(Map parameters = [:], body) {
         .withMandatoryProperty('stepName')
         .addIfEmpty('stepNameDoc' , parameters.stepName)
         .use()
-
+ echo "after config  "
     def message = ''
     try {
         if (config.echoDetails)
